@@ -1,0 +1,332 @@
+\documentclass[12pt]{article} 
+
+\usepackage[utf8x]{inputenc}              
+\usepackage[english, russian]{babel}    
+\usepackage{amsmath}		            
+\usepackage{amsfonts}		   
+\usepackage{amssymb}		            	
+\usepackage{graphicx}                        
+\usepackage{hyperref} 		            
+\usepackage{cite} 		              
+\usepackage[a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm]{geometry}
+
+\usepackage{misccorr} % для добавления точки после номера заголовка
+
+% новая команда \RNumb для вывода римских цифр
+\newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\setcounter{equation}{13} %установка счётчика уравнений с нужного нам числа
+
+\title{\textbf{\Large{Угловой пограничный слой в нелинейных эллиптических задачах, содержащих производные первого порядка}}}       % заголовок
+\author{Бутузов В. Ф., Денисов И. В.}   
+\date{} %убираем дату
+
+\begin{document}   
+
+\maketitle   				   % Собрать титульную страницу	
+\thispagestyle{empty}          % Не отображать номер страницы
+
+\newpage                      % Новая страница
+
+\begin{center}
+\section{Случай $ \alpha > 1$}
+\end{center}
+
+Пусть выполнены следующие условия.
+
+{\bf Условие \RNumb{1}.} {\em  Функции $A(x,y)$, $F(u, x, y, \varepsilon)$ и $\phi(x, y)$ являются достаточно гладкими.}
+
+Как обычно, требуемый порядок гладкости зависит от порядка асимптотики, которую мы хотим построить. Поскольку речь идёт об асимптотике произвольного порядка, будем считать эти функции бесконечно дифференцируемыми.
+
+{\bf Условие \RNumb{2}.}  {\em Уравнение $F(u, x, y, 0) = 0$, получающееся из (12) при $\varepsilon = 0$, в замкнутом прямоугольнике $\bar \Omega$  имеет решения $u=\bar u_{0}(x, y)$.}
+
+{\bf Условие \RNumb{3}.} {\em Производная $\bar F_{u}(x,y) := F_{u}(\bar u_{0}(x, y), x, y, 0) > 0$ в замкнутом прямоугольнике $\bar \Omega$. }
+
+{\bf Условие \RNumb{4}.} {\em Для системы}
+
+$$ \frac {dz_{1}}{dt} = z_{2}, \quad \frac {dz_{2}}{dt} = F(\bar u_{0}(x, y) + z_{1}, x, y, 0), \quad t \ge 0, $$
+
+\noindent {\em где x, y -- параметры, (x, y) -- произвольная точка границы $\partial \Omega$, прямая $z_{1} = \phi(x,y) - \bar u_{0}(x, y)$ пересекает сепаратрису, входящую в точку покоя $(z_{1}, z_{2}) = (0, 0)$ этой системы при $t \to \infty$.}
+
+Для определённости будем считать, что в задаче (12), (2) параметр $\alpha = 3/2$.
+Сделаем замену $\varepsilon^{1/2} = \mu$. Получим уравнение 
+
+\begin{equation}\label{first}  \mu^{4}\Delta u - \mu^{3}A(x,y) \frac {\partial u}{\partial y} = F(u, x, y, \mu^{2}), \end{equation}
+с краевым условием
+
+\begin{equation} \label{second}  u(x, y, \mu) = \phi(x, y), \quad (x,y) \in \partial \Omega.     \end{equation}
+
+В соответствии с видом (13) искомой асимптотики функцию F заменим выражением, аналогичным (13) (см.~\cite{vasilieva}):
+
+\begin{equation} F = \bar F + \Pi F + PF.   \label{th}   \end{equation}
+
+Выражения (13) и (\ref{th}) подставляются в уравнение (\ref{first}), которое разделяется на части: регулярную
+
+\begin{equation}\label{fth}  \mu^{4}\Delta u - \mu^{3}A(x,y) \frac {\partial \bar u}{\partial y} = \bar F,  \end{equation}
+погранслойную
+
+\begin{equation} \label{fif}  \mu^{4}\Delta \Pi  - \mu^{3}A(x,y) \frac {\partial \Pi}{\partial y} = \Pi F    \end{equation}
+и угловую погранслойную
+
+\begin{equation} \label{six} \mu^{4}\Delta P  - \mu^{3}A(x,y) \frac {\partial P}{\partial y} = P F  ,   \end{equation}
+вид правых частей уравнения указан ниже. Приведём схему построения асимптотики.
+
+{\bf Регулярная часть асимтотики} находится из уравнения (\ref{fth}), в котором $\bar F= F(\bar u, x, y, \mu^{2} )$, а $\bar u$ ищется в виде ряда по степеням $\mu$
+
+\begin{equation}\label{sev} \bar u(x, y, \mu) = \sum_{k = 0}^{\infty} \mu^{k} \bar u_{k}(x, y).      \end{equation}
+
+Для нахождения коэффициентов ряда (\ref{sev}) получается система уравнений
+
+$$ F(\bar u_{0}(x, y), x, y, 0) = 0, \quad \bar F_{u}(x, y)\bar u_{k} = f_{k}(x, y), \quad k \ge 1,  $$
+где функции $ f_{k}(x, y)$ рекуррентно выражаются через $\bar u_{i}(x,y)$ с номерами $i < k$.
+Корень первого уравнения $\bar u_{0} = \bar u_{0}(x, y)$ выбирается в соответствии с уcловием \RNumb{2}.
+Из последующих уравнений в силу условия \RNumb{3} однозначно определяются функции $\bar u_{k} = \bar u_{k}(x, y)$, $k \ge 1$.
+
+Регулярная часть асимптотики, как будет видно в дальнейшем, даёт при $\mu \to 0$ приближение для решения задачи (\ref{first}), (\ref{second}) внутри прямоугольника $\Omega$, но на границе $\partial \Omega$ функция $\bar u(x, y, \varepsilon)$, вообще говоря, не совпадает с заданной граничной функцией $\phi (x, y)$. Для устранения невязок в граничном условии (\ref{second}) вводится погранслойная часть асимптотики, которая в соответствии с числом сторон прямоугольника $\Omega$ разделяется на четыре слагаемых:
+
+\begin{equation}\label{eg} \Pi = \overset{(1)}{\Pi} + \overset{(2)}{\Pi} + \overset{(3)}{\Pi} + \overset{(4)}{\Pi}.  \end{equation}
+
+Каждое слагаемое играет роль вблизи соответствующей стороны прямоугольника $\Omega$. Для построения погранфункций вводятся растянутые (погранслойные) переменные
+
+$$ \xi = \frac {x}{\mu^{2}}, \qquad \eta = \frac {y}{\mu^{2}}, \qquad \xi_{*} = \frac {a - x}{\mu^{2}}, \qquad \eta_{*} = \frac {b - y}{\mu^{2}}, $$
+и на четыре слагаемых, аналогичных (\ref{eg}), разделяется правая часть в (\ref{fif}).
+
+{\bf Погранслойная часть асимптотики в окрестности стороны} $y = 0$ находится из задачи
+
+\begin{equation} \label{nine} \mu^{4} \frac {\partial^{2}  \overset{(1)}{\Pi}}{\partial x^{2}} + \frac {\partial^{2} \overset{(1)}{\Pi}}{\partial \eta^{2}} - \mu A(x, \mu^{2} \eta) \frac {\partial \overset{(1)}{\Pi}}{\partial \eta} = \overset{(1)}{\Pi}F, \quad  0 \leq x \leq a, \quad \eta \geq 0\end{equation}
+
+\begin{equation} \label{ten} \overset{(1)}{\Pi}(x, 0, \mu) = \phi(x, 0) - \bar u (x, 0, \mu), \quad \overset{(1)}{\Pi}(x, \infty, \mu) = 0,  \end{equation}
+где
+
+$$ \overset{(1)}{\Pi} F = F \left (\bar u (x, \mu^{2} \eta, \mu) + \overset{(1)}{\Pi} (x, \eta, \mu),x,\mu^{2}\eta,\mu^{2})\right) - F(\bar u(x,\mu^{2}\eta, \mu),x,\mu^{2}\eta,\mu^{2}). $$
+
+Функция $\overset{(1)}{\Pi}$ ищется в виде ряда по степеням $\mu$
+
+\begin{equation} \label{ele} \overset{(1)}{\Pi} (x, \eta, \mu) = \sum_{k=0}^{\infty} \mu^{k}\overset{(1)}{\Pi}_{k} (x, \eta). \end{equation}
+
+Для главного члена  $\overset{(1)}{\Pi}_{0}  (x,\eta)$ из (\ref{nine}), (\ref{ten}) получается задача (переменная $x$ играет роль параметра, $0 \leq x \leq a$):
+ 
+$$  \frac {\partial ^{2} \overset{(1)}{\Pi}_{0}}{\partial \eta ^{2}} = F \left(\bar u(x,0) + \overset{(1)}{\Pi}_{0}, x, 0, 0 \right), \quad \eta \geq 0, $$
+
+$$  \overset{(1)}{\Pi}_{0}(x, 0) = \phi(x,0) - \bar u_{0}(x,0), \quad \overset{(1)}{\Pi}_{0}(x,\infty) = 0.  $$
+
+В силу условия \RNumb{4} эта задача имеет решение, уравнение интегрируется в квадратурах, и для решения в силу условия \RNumb{3} справедлива экспоненциальная оценка (см.~\cite{vasilieva})
+
+\begin{equation} \label{tw} \left|\overset{(1)}{\Pi}_{0}(x, \eta) \right| \leq C \exp(-\kappa \eta), \end{equation}
+где $C > 0$ и $\kappa > 0$ -- здесь и далее подходящие положительные числа, не зависящие от $\varepsilon$. Такая же оценка оказывается справедливой и для производных
+
+$$ \frac {\partial \overset{(1)}{\Pi}_{0}}{\partial \eta} \quad \text{и}\quad \frac {\partial^{2}\overset{(1)}{\Pi}_{0}}{\partial x^{2}}$$
+(см.~\cite{butuzov}).
+
+Для коэффициентов $\overset{(1)}{\Pi}_{k}(x, \eta)$, $k \geq 1$, ряда (\ref{ele}) получаются линейные задачи
+
+\begin{equation} \label{ther} \frac {\partial_{2} \overset{(1)}{\Pi}_{k}}{\partial \eta_{2}} = F_{u} \left(\bar u_{0}(x,0) + \overset{(1)}{\Pi}_{0}(x, \eta), x, 0, 0 \right) \overset{(1)}{\Pi}_{k} + \overset{(1)}{\pi}_{k} (x, \eta), \quad \eta \geq 0, \end{equation}
+
+\begin{equation}\label{frth} 
+\overset{(1)}{\Pi}_{k}(x, 0) = -\bar u_{k}(x, 0), \quad  \overset{(1)}{\Pi}_{k}(x, \infty) = 0, \end{equation}
+где функции $\overset{(1)}{\pi}_{k}(x, \eta)$ рекуррентно выражаются черех $\overset{(1)}{\Pi}_{i}(x, \eta)$ с номерами $i < k$ и имеют экспоненциальные оценки вида $(\ref{tw})$, если таким же оценкам удовлетворяют функции $\overset{(1)}{\Pi}_{i}(x, \eta)$ при $i < k$. Решения задач (\ref{ther}), (\ref{frth}) выписываются в явном виде (см. [3]) и для них вместе с производными
+
+$$ \frac {\partial \overset{(1)}{\Pi}_{k}}{\partial \eta} \quad \text{и}\quad \frac {\partial^{2}\overset{(1)}{\Pi}_{k}}{\partial x^{2}}$$
+получаются экспоненциальные оценки вида (\ref{tw}).
+
+% вторая часть
+
+{\bf Погранслойные ряды} \; $\overset{(2)}{\Pi} \; (\xi, y, \mu),$ \;$\overset{(3)}{\Pi} \; (x, \eta_*, \mu)$ и 
+$\overset{(4)}{\Pi} \; (\xi_*, y, \mu),$ играющие роль в окрестностях сторон $x = 0,\; y = b$ и $x = a,$ строятся аналогично ряду $\overset{(1)}{\Pi} \; (x, \eta, \mu),$ и их члены имеют экспоненциальные оценки типа~(\ref {tw}).
+
+Погранслойная часть асимптотики устраняет невязки в граничном условии на сторонах прямоугольника $\Omega$, внесенные регулярной частью. В то же время она вносит свои невязки в граничное условие. Эти невязки существенны лишь вблизи угловых точек границы. Так, пограничные функции $\overset{(1)}{\Pi}_k \; (x, \eta)$, устраняя невязки в граничном условии на стороне $y = 0$, в свою очередь вносят невязки в граничное условие на сторонах $x = 0$ и $x = a$. Эти невязки существенны лишь вблизи угловых точек $(0, 0)$ и $(a, 0)$, а далее, с ростом $y$, они экспоненциально затухают в силу оценки~(\ref {tw}). Аналогичные невязки вносят члены погранслойного ряда $\overset{(2)}{\Pi} \; (\xi, y, \mu)$ на стороны $y = 0$ и $y = b$, члены ряда $\overset{(3)}{\Pi} \; (x, \eta_*, \mu)$~-- на стороны $x = 0$ и $x = a$, члены ряда $\overset{(4)}{\Pi} \; (\xi_*, y, \mu)$~-- на стороны $y = 0$ и $y = b$. С целью устранения этих невязок вводится угловая часть асимптотики, она обозначается буквой $P$. В соответствии с числом вершин прямоугольника $\Omega$ эта часть асимптотики разделяется на четыре слагаемых:
+\begin{equation} \label {P4}
+	P = \overset{(1)}{P}+ \overset{(2)}{P} + \overset{(3)}{P} + \overset{(4)}{P},
+\end{equation}
+и на четыре аналогичных слагаемых разделяется правая часть в~(\ref {six}). Каждое слагаемое играет роль только вблизи соответствующей вершины прямоугольника $\Omega$.
+
+{\bf Угловая погранслойная часть асимптотики в окрестности точки} $(0, 0)$ находится из задачи
+
+\begin{equation*}
+	\frac{\partial^2 \; \overset{(1)}{P}}{\partial \xi^2} + \frac{\partial^2 \; \overset{(1)}{P}}{\partial \eta^2} - \mu A (\mu^2 \xi, \mu^2 \eta) \frac{\partial \; \overset{(1)}{P}}{\partial \eta} = \overset{(1)}{P} \; F, \quad \xi \ge 0, \quad \eta \ge 0,
+\end{equation*}
+
+\begin{equation*}
+	\overset{(1)}{P} \; (0, \eta, \mu) = -\, \overset{(1)}{\Pi} \; (0, \eta, \mu), \quad \overset{(1)}{P} \; (\xi, 0, \mu) = -\, \overset{(2)}{\Pi} \; (\xi, 0, \mu),
+\end{equation*}
+
+\begin{equation*}
+	\overset{(1)}{P} \; (\xi, \eta, \mu) \to 0 \quad \text{при} \quad (\xi + \eta) \to \infty,
+\end{equation*}
+где
+\begin{equation*}
+	\overset{(1)}{P} \; F =
+\end{equation*}
+\begin{equation*}
+	= F \left( \bar u (\mu^2 \xi, \mu^2 \eta, \mu) + \overset{(1)}{\Pi} \; (\mu^2 \xi, \eta, \mu) + \overset{(2)}{\Pi} \; (\xi, \mu^2 \eta, \mu) + \overset{(1)}{P} \; (\xi, \eta, \mu), \mu^2 \xi, \mu^2 \eta, \mu^2 \right) -
+\end{equation*}
+\begin{equation*}
+	- \left. \left( \overset{(1)}{\Pi} \; F + \overset{(2)}{\Pi} \; F + \bar F \right) \right|_{x = \mu^2 \xi, y = \mu^2 \eta}.
+\end{equation*}
+
+Функция $\overset{(1)}{P}$ ищется в виде ряда по степеням $\mu$
+\begin{equation} \label {P_summa}
+	\overset{(1)}{P} \; (\xi, \eta, \mu) = \sum_{k = 0}^\infty \mu^k \; \overset{(1)}{P}_k \; (\xi, \eta).
+\end{equation}
+
+Для нахождения коэффициентов ряда~(\ref{P_summa}) получаются эллиптические задачи, исследование которых представляет основную трудность. Задача для определения главного члена $\overset{(1)}{P}_0 \; (\xi, \eta)$ угловой части асимптотики ставится в квадранте $\mathbb{R}_+^2$ и имеет вид, аналогичный задаче (8) -- (10):
+\begin{equation} \label {main_task1}
+	\frac{\partial^2 \; \overset{(1)}{P_0}}{\partial \xi^2} + \frac{\partial^2 \; \overset{(1)}{P_0}}{\partial \eta^2} = \overset{(1)}{P}_0 \; F, \quad \xi \ge 0, \quad \eta \ge 0, 
+\end{equation}
+
+\begin{equation}
+	\overset{(1)}{P}_0 \; (0, \eta) = -\, \overset{(1)}{\Pi}_0 \; (0, \eta), \qquad
+\overset{(1)}{P}_0 \; (\xi, 0) = -\, \overset{(2)}{\Pi}_0 \; (\xi, 0),
+\end{equation}
+
+\begin{equation} \label {main_task2}
+	\overset{(1)}{P}_0 \; (\xi, \eta) \to 0 \quad \text{при} \quad (\xi + \eta) \to \infty, 
+\end{equation}
+где
+\begin{equation*}
+	\overset{(1)}{P}_0 \; F = F \left( \bar u_0(0, 0) + \overset{(1)}{\Pi}_0 \; (0, \eta) +  \overset{(2)}{\Pi}_0 \; (\xi, 0) + \overset{(1)}{P}_0 \; (\xi, \eta), 0, 0, 0 \right) -
+\end{equation*}
+
+\begin{equation} \label {P0F}
+	-F \left( \bar u_0(0, 0) + \overset{(1)}{\Pi}_0 \; (0, \eta), 0, 0, 0 \right) -F \left( \bar u_0(0, 0) + \overset{(2)}{\Pi}_0 \; (\xi, 0), 0, 0, 0 \right). 
+\end{equation}
+
+Для функций $\overset{(1)}{P}_k \; (\xi, \eta), \; k \ge 1,$ получаются линейные задачи
+\begin{equation*}
+	\frac{\partial^2 \; \overset{(1)}{P}_k}{\partial \xi^2} + \frac{\partial^2 \; \overset{(1)}{P}_k}{\partial \eta^2} -
+F_u' \left( \bar u_0 + \overset{(1)}{\Pi}_0 \; (0, \eta) +  \overset{(2)}{\Pi}_0 \; (\xi, 0) + \overset{(1)}{P}_0 \; (\xi, \eta), 0, 0, 0 \right) \overset{(1)}{P}_k =
+\end{equation*}
+
+\begin{equation} \label {linear_task1}
+	= \overset{(1)}{p}_k \; (\xi, \eta), \quad \xi \ge 0, \quad \eta \ge 0,
+\end{equation}
+
+\begin{equation}
+	\overset{(1)}{P}_k \; (0, \eta) = -\, \overset{(1)}{\Pi}_k \; (0, \eta), \qquad
+\overset{(1)}{P}_k \; (\xi, 0) = -\, \overset{(2)}{\Pi}_k \; (\xi, 0),
+\end{equation}
+
+\begin{equation} \label {linear_task2}
+	\overset{(1)}{P}_k \; (\xi, \eta) \to 0 \quad \text{при} \quad (\xi + \eta) \to \infty,
+\end{equation}
+где функции $\overset{(1)}{p}_k \; (\xi, \eta)$ имеют экспоненциальные оценки
+\begin{equation} \label {exp_estimate}
+	\left| \overset{(1)}{P}_k \; (\xi, \eta) \right| \le C \; \exp(-\kappa(\xi + \eta)),
+\end{equation}
+если таким же оценкам удовлетворяют функции $\overset{(1)}{P}_i \; (\xi, \eta)$ с номерами $i < k$.
+
+Для исследования задач~(\ref {main_task1})~--~(\ref {main_task2}) и~(\ref {linear_task1})~--~(\ref {linear_task2}) на предмет их разрешимости и экспоненциальных оценок решения используется метод верхних и нижних решений (барьеров), разработанный для подобной ситуации в~\cite{denisov1, denisov2}. Рассмотрим возможные случаи, в зависимости от которых наряду с условиями \RNumb{1}~-- \RNumb{4} будем требовать выполнения тех или иных дополнительных условий.
+
+{\bf Случай (\textit{A})}. Сначала будем предполагать, что задача~(\ref {main_task1})~--~(\ref {main_task2}) имеет решение $\overset{(1)}{P}_0 \; (\xi, \eta)$ с экспоненциальной оценкой вида~(\ref{exp_estimate}). В этом случае в силу условия \RNumb{3} и экспоненциальных оценок пограничных функций найдется положительное число $\rho$ такое, что в области
+\begin{equation} \label {Omega0}
+	\Omega_0 = \{ (\xi, \eta)| \, \xi > \rho, \, \eta > \rho \}
+\end{equation}
+производная $F_u$ на полном нулевом приближении удовлетворяет неравенству
+\begin{equation*}
+	F_u \left( \bar u_0(0, 0) + \overset{(1)}{\Pi}_0 \; (0, \eta) + \overset{(2)}{\Pi}_0 \; (\xi, 0) + \overset{(1)}{P}_0 \; (\xi, \eta), 0, 0, 0 \right) \ge \gamma^2, 
+\end{equation*}
+где $\gamma$~-- некоторое положительное число. Однако в приграничных полосах
+\begin{equation*}
+	E_{\xi} = \{ (\xi, \eta) | \, 0 \le \xi \le \rho, \, \eta \ge 0 \} \quad \text{и} \quad E_{\eta} = \{ (\xi, \eta) | \, \xi \ge 0, \, 0 \le \eta \le \rho \}
+\end{equation*}
+эта производная может быть отрицательной. Поэтому задачи~(\ref {linear_task1})~--~(\ref {linear_task2}) не всегда будут иметь решения, удовлетворяющие экспоненциальным оценкам вида~(\ref{exp_estimate}). В связи с этим рассмотрим следующие дополнительные условия.
+ 
+{\bf Условие} (\textit{$A_1$}). 
+\textit{Задача~(\ref {main_task1})~--~(\ref {main_task2}) имеет решение $\overset{(1)}{P}_0 \; (\xi, \eta)$ с экспоненциальной оценкой вида~(\ref{exp_estimate}), и, кроме этого, во всем квадранте $\mathbb{R}_+^2$ производная $F_u$ на полном нулевом приближении удовлетворяет неравенству
+\begin{equation*}
+	F_u \left( \bar u_0(0, 0) + \overset{(1)}{\Pi}_0 \; (0, \eta) + \overset{(2)}{\Pi}_0 \; (\xi, 0) + \overset{(1)}{P}_0 \; (\xi, \eta), 0, 0, 0 \right) \ge \gamma^2,
+\end{equation*}
+где $\gamma$~-- некоторое положительное число. }
+
+{\bf Условие} (\textit{$A_2$}). 
+\textit{Задача~(\ref {main_task1})~--~(\ref {main_task2}) имеет решение $\overset{(1)}{P}_0 \; (\xi, \eta)$ с экспоненциальной оценкой вида~(\ref{exp_estimate}), и, кроме этого, в пригнаничных полосах $E_{\xi}$ и $E_{\eta}$ квадранта $\mathbb{R}_+^2$ производная $F_u$ на полном нулевом приближении удовлетворяет неравенству
+\begin{equation*}
+	F_u \left( \bar u_0(0, 0) + \overset{(1)}{\Pi}_0 \; (0, \eta) + \overset{(2)}{\Pi}_0 \; (\xi, 0) + \overset{(1)}{P}_0 \; (\xi, \eta), 0, 0, 0 \right) \ge -q^2,
+\end{equation*}
+где $q$ -- положительное число, причем $q \rho < \pi / 2, \, \rho$ -- число из~(\ref{Omega0}). }
+
+Если выполнено условие (\textit{$A_1$}), то для задач~(\ref {linear_task1})~--~(\ref {linear_task2}) можно построить верхние $\overset{(1)}{P}_{k+}$ и нижние $\overset{(1)}{P}_{k-}$ барьеры в виде
+\begin{equation*}
+	\overset{(1)}{P}_{k\pm} = \pm r \exp (-\kappa (\xi + \eta)) - \overset{(1)}{\Pi}_k \; (0, \eta) \; \exp (-\kappa \xi) - 
+\overset{(2)}{\Pi}_k \; (\xi, 0) \; \exp (-\kappa \eta) -
+\end{equation*}
+\begin{equation*}
+	- \bar u_k(0, 0) \; \exp(-\kappa (\xi + \eta)),
+\end{equation*}
+где $r$ -- подходящее положительное число. Эти барьеры имеют экспоненциальные оценки вида~(\ref{exp_estimate}) и обеспечивают существование решений задач~(\ref {linear_task1})~--~(\ref {linear_task2}) с такой же оценкой.
+
+Если условие (\textit{$A_1$}) не выполнено, то потребуем выполнения условия (\textit{$A_2$}). В этом случае барьеры для задач~(\ref {linear_task1})~--~(\ref {linear_task2}) не удается построить сразу во всем квадранте $\mathbb{R}_+^2$. Приходится разбивать его на три подобласти $\Omega_0, \; \Omega_1$ и $\Omega_2$, где $\Omega_0$ определена в~(\ref{Omega0}),
+\begin{gather*}
+	\Omega_1 \; = \; \{ (\xi, \eta) \, | \qquad \xi \ge \eta, \qquad 0 \le \eta \le \rho \quad \}, \\
+	\Omega_2 \; = \; \{ (\xi, \eta) \, | \quad 0 \le \xi \le \rho, \qquad \eta \ge \xi \qquad \}.
+\end{gather*}
+
+Сначала можно построить непрерывные в $\mathbb{R}_+^2$ и гладкие в каждой из трех подобластей барьерные функции, имеющие экспоненциальные оценки вида~(\ref{exp_estimate}). Затем эти кусочно-гладкие барьеры можно специальным образом преобразовать в гладкие в $\mathbb{R}_+^2$ барьеры для задач~(\ref {linear_task1})~--~(\ref {linear_task2}) (см.~\cite{denisov2}).
+
+Таким образом, если выполнено условие (\textit{$A_1$}) или условие (\textit{$A_2$}), то задачи~(\ref {linear_task1})~--~(\ref {linear_task2}) имеют решения 
+$\overset{(1)}{P}_k \; (\xi, \eta)$, удовлетворяющие экспоненциальным оценкам вида~(\ref{exp_estimate}).
+
+{\bf Случай (\textit{B})}. Теперь не будем делать априорного предположения о существовании и оценке решения задачи~(\ref {main_task1})~--~(\ref {main_task2}). Потребуем, чтобы граничное значение $\phi = \phi(0, 0)$ было таково, что для функции $F(u) := F(u, 0, 0, 0)$ производная $F'(u) > 0$ для всех значений $u$ на промежутке от $\bar u_0 = \bar u_0(0, 0)$ до $\phi$. Для определенности будем считать, что $\bar u_0 < \phi$.
+
+Случай, когда $\bar u_0 > \phi$, сводится к предыдущему заменой в уравнении (12) $u$ на $-u$.
+
+Если же $\bar u_0 = \phi$, то $\overset{(1)}{\Pi}_0 \; (0, \eta) = \overset{(2)}{\Pi}_0 \; (\xi, 0) = \overset{(1)}{P}_0 \; (\xi, \eta) = 0$ и коэффициент при $\overset{(1)}{P}_k$ в уравнении~(\ref {linear_task1}) будет равен $-F_u(\bar u_0) < 0$. В этом случае решения задач~(\ref {linear_task1})~--~(\ref {linear_task2}) выписываются в явном виде и имеют экспоненциальные оценки вида~(\ref{exp_estimate}).
+
+В случае (\textit{B}) при построении верхнего барьера для решения задачи~(\ref {main_task1})~--~(\ref {main_task2}) введем следующее условие.
+
+{\bf Условие} (\textit{$B_1$}). 
+\textit{ Существуют числа $\phi_1 > \phi$ и $C_+ \in (0, \phi_1 - \phi)$ такие, что $F'(u) > 0$ на промежутке $[\phi, \phi_1]$ и для любых значений $s$ и $t$ из промежутка $[0, \phi - \bar u_0]$ выполняется неравенство
+\begin{equation*}
+	F \left( \bar u_0 + s + t - \frac{s t}{\phi - \bar u_0} + C_+ \right) - \left( 1 - \frac{s}{\phi - \bar u_0} \right)
+F \, (\bar u_0 + t) -
+\end{equation*}
+\begin{equation} \label {F_eq}
+	- \left( 1 - \frac{t}{\phi - \bar u_0} \right) F \, (\bar u_0 + s) > 0. 
+\end{equation}
+}
+
+Если условие (\textit{$B_1$}) выполнено, то верхний барьер для решения задачи~(\ref {main_task1})~--~(\ref {main_task2}) можно построить в виде
+\begin{equation} \label {last}
+	r \exp (-\kappa (\xi + \eta)) -
+\frac{\overset{(1)}{\Pi}_0 \; (0, \eta) \; \overset{(2)}{\Pi}_0 \; (\xi, 0)}{\phi - \bar u_0} \, ,
+\end{equation}
+где $r$ и $\kappa$~-- подходящие положительные числа.
+
+Очевидно, что при $\phi \to \bar u_0$ левая часть неравенства~(\ref{F_eq}) стремится к числу $F(\bar u_0 + C_+) > 0$. Поэтому любая функция $F(u)$ при значениях $\phi$, достаточно близких к $\bar u_0$, удовлетворяет условию (\textit{$B_1$}). При удалении $\phi$ от $\bar u_0$ ситуация может измениться. В~\cite{tula} подробно исследован класс функций, удовлетворяющих условию (\textit{$B_1$}). Преобразуем левую часть неравенства~(\ref{F_eq}) к виду, удобному для исследования. Так как
+\begin{equation*}
+	\bar u_0 + s + t - \frac{s t}{\phi - \bar u_0} = \phi - (\phi - \bar u_0) \left( 1 - \frac{s}{\phi - \bar u_0} \right) 
+\left( 1 - \frac{t}{\phi - \bar u_0} \right),
+\end{equation*}
+\begin{equation*}
+	\bar u_0 + s = \phi - (\phi - \bar u_0) \left( 1 - \frac{s}{\phi - \bar u_0} \right),
+\end{equation*}
+\begin{equation*}
+	\bar u_0 + t = \phi - (\phi - \bar u_0) \left( 1 - \frac{t}{\phi - \bar u_0} \right),
+\end{equation*}
+то левая часть неравенства~(\ref{F_eq}) представляется в виде
+\begin{equation*}
+	F \left( \phi - (\phi - \bar u_0) \left( 1 - \frac{s}{\phi - \bar u_0} \right) \left( 1 - \frac{t}{\phi - \bar u_0} \right) 
++ C_+ \right) -
+\end{equation*}
+\begin{equation*}
+	- \left( 1 - \frac{s}{\phi - \bar u_0} \right) F \left( \phi - (\phi - \bar u_0) \left( 1 - \frac{t}{\phi - \bar u_0} \right) \right) -
+\end{equation*}
+\begin{equation*}
+	- \left( 1 - \frac{t}{\phi - \bar u_0} \right) F \left( \phi - (\phi - \bar u_0) \left( 1 - \frac{s}{\phi - \bar u_0} \right) \right) .
+\end{equation*}
+
+\newpage
+
+\begin{thebibliography} {0}  % Список литературы
+	\bibitem{butuzov}
+	Бутузов~В.\,Ф. Сингулярно возмущенное уравнение эллиптического типа с двумя малыми параметрами // Дифференц. уравнения. 1976. Т. 12. №10 С. 1793~-- 1803. (English transl.: Butuzov~V.\,F. A singularly perturbed elliptic equation with two small parameters // Differential Equations. 1976. V. 12, No. 10. P. 1261.)
+	\bibitem{denisov1}
+	Денисов~И.\,В. Квазилинейные сингулярно возмущенные эллиптические уравнения в прямоугольнике // Ж. вычисл. матем. и матем. физ. 1995. Т. 35. №11. С. 1666~-- 1678. (English transl.: Denisov~I.\,V. Quasilinear singularly perturbed elliptic equations in a rectangle // Computational Mathematics and Mathematical Physics. 1995. V. 35, No. 11. P. 1341~--1350.)
+	\bibitem{denisov2}
+	Денисов~И.\,В. Угловой погранслой в нелинейных сингулярно возмущенных эллиптических задачах // Ж. вычисл. матем. и матем. физ. 2008. Т. 48. №1. С. 62~-- 79. (English transl.: Denisov~I.\,V. Corner boundary layer in nonlinear singularly perturbed elliptic problems // Computational Mathematics and Mathematical Physics. 2008. V. 48, No. 1. P. 59~--75.)
+	\bibitem{tula}
+	Денисов~И.\,В. О некоторых классах функций // Чебышевский сборник. Т. Х. Вып. 2 (30). Тула: Изд-во Тул. гос. пед. ун-та им. Л.\,Н.\,Толстого, 2009. С. 79~-- 108.
+	\bibitem{vasilieva}
+	Васильева~А.\,Б., Бутузов~В.\,Ф. Асимптотические методы в теории сингулярных возмущений. М.: Высшая школа, 1990.
+\end{thebibliography}
+
+\end{document}
